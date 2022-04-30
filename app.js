@@ -21,9 +21,8 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-const urldb = "mongodb+srv://covidAppDb:covidAppDb@cluster0.cqa75.mongodb.net/CovidApp?retryWrites=true&w=majority";
 try {
-    mongoose.connect(urldb, { useNewUrlParser: true, useUnifiedTopology: true });
+    mongoose.connect(process.env.urldb, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log("DB Connected");
 } catch (err) {
     console.log(err);
